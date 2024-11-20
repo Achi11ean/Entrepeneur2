@@ -29,7 +29,7 @@ YOUR_DOMAIN = 'https://jwhitproductions.netlify.app/client-dashboard'
 
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
-CORS(app, supports_credentials=True, origins=["https://jwhitproductions.netlify.app/","http://jwhitproductions.netlify.app/","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
+CORS(app, supports_credentials=True, origins=["https://jwhitproductions.netlify.app","http://jwhitproductions.netlify.app","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
 
 app.secret_key = "supersecretkey" 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///jwhit.db"
