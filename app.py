@@ -31,13 +31,14 @@ app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
 CORS(app, supports_credentials=True, origins=["https://jwhitproductions.netlify.app/","https://jwhitproductions.netlify.app/","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
 
-app.secret_key = os.getenv("FLASK_SECRET_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
+app.secret_key = "supersecretkey" 
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///jwhit.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["REMEMBER_COOKIE_SECURE"] = False
 app.config["BCRYPT_LOG_ROUNDS"] = 12  # Set work factor to 12 if not already configured
 app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevents client-side scripts from accessing cookies
 app.config["SESSION_COOKIE_SAMESITE"] = "None"  # Allows cookies in cross-origin requests
+
 
 app.json.compact = False
 
