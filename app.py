@@ -23,7 +23,7 @@ baseUrl='https://jwhitproductions.netlify.app'
 
 # code for stripe
 import stripe
-stripe_api_key = "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"
+stripe_api_key = "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"
 YOUR_DOMAIN = 'https://jwhitproductions.netlify.app/client-dashboard'
 
 
