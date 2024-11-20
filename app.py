@@ -19,7 +19,7 @@ import os
 load_dotenv()
 from functools import wraps
 
-baseUrl='https://entrepreneur-frontend.netlify.app/'
+baseUrl='https://jwhitproductions.netlify.app/'
 
 # code for stripe
 import stripe
