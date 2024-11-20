@@ -13,23 +13,26 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import jwt
 from sqlalchemy import extract,func, cast, Date
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 from functools import wraps
 
 baseUrl='https://entrepreneur-frontend.netlify.app/'
 
 # code for stripe
 import stripe
-stripe.api_key = 'sk_test_51OHVuDErhU2BBi1rAjtH4VomzozGPusHCQX5UVCaKKOGYpvn072F1E5jtjZmbFUthVBQZ1wXzKmB4ovZfvS1Do0U00D9BjO0Wi'
-YOUR_DOMAIN = 'https://entrepreneur-frontend.netlify.app/client-dashboard'
+stripe_api_key = os.getenv('STRIPE_API_KEY')
+YOUR_DOMAIN = os.getenv("STRIPE_DOMAIN")
 
 
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
 CORS(app, supports_credentials=True, origins=["http://entrepreneur-frontend.netlify.app","https://entrepreneur-frontend.netlify.app","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
 
-app.secret_key = "supersecretkey" 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///jwhit.db"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["REMEMBER_COOKIE_SECURE"] = False
 app.config["BCRYPT_LOG_ROUNDS"] = 12  # Set work factor to 12 if not already configured
