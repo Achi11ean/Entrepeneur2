@@ -23,7 +23,7 @@ baseUrl='https://jwhitproductions.netlify.app'
 
 # code for stripe
 import stripe
-stripe_api_key = os.getenv('STRIPE_API_KEY')
+stripe_api_key = "https://jwhitproductions.netlify.app/client-dashboard"
 YOUR_DOMAIN = 'https://jwhitproductions.netlify.app/client-dashboard'
 
 
