@@ -19,17 +19,17 @@ import os
 load_dotenv()
 from functools import wraps
 
-baseUrl='https://entrepreneur-backend.onrender.com'
+baseUrl='https://jwhitproductions.netlify.app'
 
 # code for stripe
 import stripe
 stripe_api_key = os.getenv('STRIPE_API_KEY')
-YOUR_DOMAIN = os.getenv("STRIPE_DOMAIN")
+YOUR_DOMAIN = 'https://jwhitproductions.netlify.app/client-dashboard'
 
 
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, supports_credentials=True)
-CORS(app, supports_credentials=True, origins=["https://jwhitproductions.netlify.app/","https://jwhitproductions.netlify.app/","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
+CORS(app, supports_credentials=True, origins=["https://jwhitproductions.netlify.app/","http://jwhitproductions.netlify.app/","http://localhost:5173", "http://127.0.0.1:5173"], allow_headers=["Content-Type", "Authorization"],)
 
 app.secret_key = "supersecretkey" 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///jwhit.db"
