@@ -1248,6 +1248,7 @@ def delete_user(user_id):
         print("User deleted successfully:", user_id)
     except Exception as e:
         print("Error during deletion:", str(e))
+        print("sigh")
         return jsonify({"error": "Failed to delete user."}), 500
 
     return jsonify({"message": "User deleted successfully"}), 200
